@@ -91,9 +91,9 @@ textarea#sentence, textarea#sentence_en {
     color: #fff;
 }
 
-.create_diary button {
-    padding: 10px 30px;
-    margin-left: 906px;
+.create_diary_translate input {
+    padding: 15px 30px;
+    margin-left: 901px;
     cursor: pointer;
     background: #3a3aff;
     color: #fff;
@@ -102,6 +102,6 @@ textarea#sentence, textarea#sentence_en {
     transition: all 0.3s ease-in-out;
 }
 
-.create_diary button:hover {
+.create_diary_translate input:hover {
     opacity: 0.7;
 }

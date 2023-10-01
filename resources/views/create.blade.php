@@ -12,11 +12,13 @@
 @section('content')
 <div class="create_diary">
     <h1>日記を書く</h1>
-    <button>TRANLATE</button>
     {{-- <form class="store_diary" action="/store" method="post"> --}}
     <form class="store_diary" method="post">
         @csrf
         <div class="create_diary_body">
+            <div class="create_diary_translate">
+                <input type="submit" value="TRANSLATE">
+            </div>
             <div class="sentence">
                 <label for="body">JAPANESE</label>
                 <textarea name="sentence" id="sentence" cols="30" rows="10">{{ isset($sentence) ? $sentence : '' }}</textarea>
@@ -27,6 +29,7 @@
                 <textarea name="sentence_en" id="sentence_en" cols="30" rows="10">{{ isset($chat_response) ? $chat_response : '' }}</textarea>
             </div>
         </div>
+
         <div class="create_diary_submit">
             <input type="submit" value="日記を書く">
         </div>

@@ -27,4 +27,4 @@ Route::get('/create', function () {
 
 // Chat GPT
 Route::get('/create', [ChatGptController::class, 'index'])->name('chat_gpt-index');
-Route::post('/create', [ChatGptController::class, 'chat'])->name('chat_gpt-chat');
+// Route::post('/create', [ChatGptController::class, 'chat'])->name('chat_gpt-chat');

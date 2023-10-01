@@ -1,7 +1,7 @@
 @section('header')
 <header class="header">
     <div class="header_nav">
-        <h1>English Diary</h1>
+        <h1><a href="/">English Diary</a></h1>
         <ul class="header_nav_menu">
             <li><a href="/create">CREATE</a></li>
             <li><a href="/history">HISTORY</a></li>
@@ -33,6 +33,10 @@
     }
     body {
         margin: 0;
+    }
+
+    .header_nav a {
+        color: #000;
     }
 </style>
 @endsection
