@@ -3,7 +3,7 @@
 
     <head>
         <meta charset="UTF-8">
-        <title>@yield('title')｜nodoame.net</title>
+        <title>@yield('title')</title>
         <meta name="description" itemprop="description" content="@yield('description')">
         <meta name="keywords" itemprop="keywords" content="@yield('keywords')">
         @yield('pageCss')
@@ -13,16 +13,9 @@
 
         @yield('header')
 
-        <div class="contents">
+        <div class="container">
             <!-- コンテンツ -->
-            <div class="main">
                 @yield('content')
-            </div>
-
-            <!-- 共通メニュー -->
-            <div class="sub">
-                @yield('submenu')
-            </div>
         </div>
 
         @yield('footer')

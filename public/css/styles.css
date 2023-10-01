@@ -1,0 +1,107 @@
+body {
+    top: 0;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    width: 1024px;
+    margin: 0 auto;
+}
+
+.top_start {
+    text-align: center;
+}
+
+.top_start h1 {
+    margin-top: 100px;
+}
+
+.top_start h3 {
+    margin-top: 50px;
+    margin-bottom: 150px;
+    font-weight: normal;
+}
+
+.top_start a {
+    padding: 20px 60px;
+    background: #4d51ff;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.top_start a:hover {
+    background: #3c3fff;
+}
+
+img.arrow_down {
+    width: 20px;
+    margin-top: 30px;
+}
+
+.create_diary {
+    margin-top: 60px;
+}
+
+.sentence,
+.sentence_en {
+    display: grid;
+}
+
+.create_diary_body {
+    text-align: center;
+}
+
+textarea#sentence, textarea#sentence_en {
+    width: 100%;
+    height: 200px;
+    border-width: 4px;
+    border-color: #000;
+    border-radius: 10px;
+    padding: 5px;
+    font-size: 20px;
+}
+
+.sentence label, .sentence_en label {
+    font-size: 25px;
+    margin-right: auto;
+}
+
+.create_diary_submit {
+    margin-top: 30px;
+    float: right;
+}
+
+.create_diary_submit input {
+    padding: 10px 30px;
+    cursor: pointer;
+    background: #fff;
+    border-radius: 5px;
+    border-width: 3px;
+    margin-right: -15px;
+    transition: all 0.3s ease-in-out;
+}
+
+.create_diary_submit input:hover {
+    background: #000;
+    color: #fff;
+}
+
+.create_diary button {
+    padding: 10px 30px;
+    margin-left: 906px;
+    cursor: pointer;
+    background: #3a3aff;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.create_diary button:hover {
+    opacity: 0.7;
+}
