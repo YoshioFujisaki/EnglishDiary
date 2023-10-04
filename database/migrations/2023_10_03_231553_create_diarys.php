@@ -13,12 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('diary', function (Blueprint $table) {
-            $table->id();
-            $table->string('sentence');
-            $table->string('sentence_en');
-            $table->timestamps();
-        });
+        if (!Schema::hasTable('diarys')){
+            Schema::create('diarys', function (Blueprint $table) {
+                $table->id();
+                $table->string('sentence');
+                $table->string('sentence_en');
+                $table->timestamps();
+            });
+        }
     }
 
     /**

@@ -9,7 +9,7 @@ class Diary extends Model
 {
     use HasFactory;
 
-    protected $table = 'diary';
+    protected $table = 'diarys';
 
     protected $fillable = [
         'sentence',

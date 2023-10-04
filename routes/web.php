@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\DiaryController;
 use App\Http\Controllers\ChatGptController;
 use Illuminate\Support\Facades\Route;
 
