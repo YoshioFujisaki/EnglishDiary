@@ -23,7 +23,7 @@
                 <label for="body">JAPANESE</label>
                 <textarea name="sentence" id="sentence" cols="30" rows="10" value="{{ old('sentence') }}">{{ isset($sentence) ? $sentence : '' }}</textarea>
             </div>
-            <img class="arrow_down" src="{{ asset('/images/arrow-down.svg') }}" alt="">
+            <img class="arrow_down" src="{{ asset('/images/arrow-down.svg') }}" alt="矢印">
             <div class="sentence_en">
                 <label for="body">ENGLISH</label>
                 <textarea name="sentence_en" id="sentence_en" cols="30" rows="10">{{ isset($chat_response) ? $chat_response : '' }}</textarea>

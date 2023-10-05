@@ -47,8 +47,8 @@ img.arrow_down {
     margin-top: 20px;
 }
 
-.sentence,
-.sentence_en {
+.store_diary .sentence,
+.store_diary .sentence_en {
     display: grid;
 }
 
@@ -56,7 +56,7 @@ img.arrow_down {
     text-align: center;
 }
 
-textarea#sentence, textarea#sentence_en {
+.store_diary textarea#sentence, .store_diary textarea#sentence_en {
     width: 100%;
     height: 180px;
     border-width: 4px;
@@ -66,7 +66,10 @@ textarea#sentence, textarea#sentence_en {
     font-size: 20px;
 }
 
-.sentence label, .sentence_en label {
+.store_diary .sentence label,
+.store_diary .sentence_en label,
+.edit_diary_body .sentence label,
+.edit_diary_body .sentence_en label {
     font-size: 20px;
     margin-right: auto;
 }
@@ -86,7 +89,8 @@ textarea#sentence, textarea#sentence_en {
     transition: all 0.3s ease-in-out;
 }
 
-.create_diary_submit input:hover {
+.create_diary_submit input:hover,
+.edit_diary_submit input:hover {
     background: #000;
     color: #fff;
 }
@@ -102,7 +106,8 @@ textarea#sentence, textarea#sentence_en {
     transition: all 0.3s ease-in-out;
 }
 
-.create_diary_translate input:hover {
+.create_diary_translate input:hover,
+.edit_diary_translate input:hover {
     opacity: 0.7;
 }
 
@@ -110,6 +115,95 @@ textarea#sentence, textarea#sentence_en {
     margin: 0;
 }
 
-.sentence_en {
+.store_diary .sentence_en {
     margin-top: -22px;
+}
+
+.edit_diary_body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 120px;
+}
+
+.edit_diary_body .sentence,
+.edit_diary_body .sentence_en {
+    display: grid;
+}
+
+.edit_diary_body textarea#sentence,
+.edit_diary_body textarea#sentence_en {
+    width: 95%;
+}
+
+.edit_diary_body textarea#sentence,
+.edit_diary_body textarea#sentence_en {
+    width: 95%;
+    height: 400px;
+    border-width: 4px;
+    border-color: #000;
+    border-radius: 10px;
+    padding: 5px;
+    font-size: 20px;
+}
+
+.edit_diary_translate, .edit_diary_submit {
+    margin-left: auto;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.edit_diary_translate input {
+    cursor: pointer;
+    background: #3a3aff;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    transition: all 0.3s ease-in-out;
+    padding: 10px 20px;
+}
+
+.edit_diary_submit input {
+    padding: 6px 20px;
+    cursor: pointer;
+    background: #fff;
+    border-radius: 5px;
+    border-width: 3px;
+    transition: all 0.3s ease-in-out;
+}
+
+img.edit_img {
+    width: 20px;
+}
+
+.sentence_header {
+    display: flex;
+    width: 97%;
+    align-items: center;
+}
+
+.arrow img {
+    width: 30px;
+    position: absolute;
+}
+
+img.prev {
+    transform: rotate(-90deg);
+    right: 30px;
+    top: 400px;
+}
+
+img.next {
+    transform: rotate(90deg);
+    left: 30px;
+    top: 400px;
+}
+
+.created_date {
+    position: absolute;
+    top: 100px;
+    right: 150px;
+}
+
+.hidden {
+    display: none;
 }
