@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Throwable;
+use App\Models\Diary;
 
 class DiaryController extends Controller
 {
@@ -13,9 +14,14 @@ class DiaryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        //
+        $diarys = Diary::findOrFail($id);
+        // $latestId = DB::table('diarys')->max('id');
+        $latestId = Diary::max('id');
+        $firstId = Diary::min('id');
+
+        return view('history', ['diarys' => $diarys, 'latestId' => $latestId, 'firstId' => $firstId]);
     }
 
     /**
@@ -25,7 +31,7 @@ class DiaryController extends Controller
      */
     public function create()
     {
-        //
+        return view('create');
     }
 
     /**
@@ -36,12 +42,16 @@ class DiaryController extends Controller
      */
     public function store(Request $request)
     {
-        try {
+        // try {
 
-        } catch (Throwable $e) {
-            LOG::error($e);
-            throw $e;
-        }
+        // } catch (Throwable $e) {
+        //     LOG::error($e);
+        //     throw $e;
+        // }
+        dd($request->all());
+        Diary::create($request);
+        \Session::flash('err_msg', '日記を登録しました。');
+        return redirect()->route('history', ['id' => $request->id]);
     }
 
     /**
@@ -63,7 +73,9 @@ class DiaryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $diarys = Diary::findOrFail($id);
+        // dd(Diary::findOrFail($id));
+        return view('edit', compact('diarys'));
     }
 
     /**

@@ -12,16 +12,12 @@
 
 @section('content')
 <div class="arrow">
-    @if ($diarys->id > $firstId)
-        <a href="{{ route('history', $diarys->id - 1 ) }}">
-            <img class="prev" src="{{ asset('/images/arrow-down.svg') }}" alt="">
-        </a>
-    @endif
-    @if ($diarys->id < $latestId)
-        <a href="{{ route('history', $diarys->id + 1) }}">
-            <img class="next" src="{{ asset('/images/arrow-down.svg') }}" alt="">
-        </a>
-    @endif
+    <a href="">
+        <img class="prev" src="{{ asset('/images/arrow-down.svg') }}" alt="">
+    </a>
+    <a href="">
+        <img class="next" src="{{ asset('/images/arrow-down.svg') }}" alt="">
+    </a>
 </div>
 {{-- @foreach ($diarys as $diary) --}}
 <div class="created_date">
@@ -36,28 +32,26 @@
             <div class="sentence">
                 <div class="sentence_header">
                     <label for="body">JAPANESE</label>
-                    <a href="{{ route('history-edit', $diarys->id ) }}">
-                        {{-- <a href=""> --}}
+                    <a href="" class="hidden">
                         <img class="edit_img" src="{{ asset('/images/edit.png') }}" alt="編集">
                     </a>
                 </div>
                 <textarea name="sentence" id="sentence" cols="30" rows="10"
                     value="{{ old('sentence') }}" readonly>{{ $diarys->sentence }}</textarea>
-                <div class="edit_diary_translate hidden">
+                <div class="edit_diary_translate">
                     <input type="button" value="TRANSLATE">
                 </div>
             </div>
             <div class="sentence_en">
                 <div class="sentence_header">
                     <label for="body">ENGLISH</label>
-                    <a href="{{ route('history-edit', $diarys->id) }}">
-                        {{-- <a href=""> --}}
+                    <a href="" class="hidden">
                         <img class="edit_img" src="{{ asset('/images/edit.png') }}" alt="編集">
                     </a>
                 </div>
                 <textarea name="sentence_en" id="sentence_en" cols="30"
                     rows="10" readonly>{{ $diarys->sentence_en }}</textarea>
-                <div class="edit_diary_submit hidden">
+                <div class="edit_diary_submit">
                     <input type="submit" value="日記を更新">
                 </div>
             </div>

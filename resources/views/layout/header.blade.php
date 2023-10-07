@@ -5,6 +5,13 @@
         <ul class="header_nav_menu">
             <li><a href="/create">CREATE</a></li>
             <li><a href="/history">HISTORY</a></li>
+            {{-- <li><a href="{{ route('history', $latestId ) }}">HISTORY</a></li> --}}
+            {{-- <x-nav-link :href="route('create')" :active="request()->routeIs('create')">
+                CREATE
+            </x-nav-link> --}}
+            {{-- <x-nav-link :href="route('/history')" :active="request()->routeIs('history')">
+                HISTORY
+            </x-nav-link> --}}
         </ul>
     </div>
 </header>
