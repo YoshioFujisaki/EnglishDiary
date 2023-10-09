@@ -29,14 +29,17 @@ class ChatGptController extends Controller
         $request->validate([
             'sentence' => 'required',
         ]);
+        // dd($request->all());
 
-        // 文章
+        // if ($request->has('translate')) {
+            // 文章
         $sentence = $request->input('sentence');
 
         // ChatGPT API処理
         $chat_response = $this->chat_gpt("以下の文章を英語にしてください。「", $sentence, "」");
-
         return view('create', compact('sentence', 'chat_response'));
+        // }
+        // return redirect()->route('create');
     }
 
     /**

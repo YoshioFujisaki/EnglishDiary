@@ -4,14 +4,8 @@
         <h1><a href="/">English Diary</a></h1>
         <ul class="header_nav_menu">
             <li><a href="/create">CREATE</a></li>
-            <li><a href="/history">HISTORY</a></li>
-            {{-- <li><a href="{{ route('history', $latestId ) }}">HISTORY</a></li> --}}
-            {{-- <x-nav-link :href="route('create')" :active="request()->routeIs('create')">
-                CREATE
-            </x-nav-link> --}}
-            {{-- <x-nav-link :href="route('/history')" :active="request()->routeIs('history')">
-                HISTORY
-            </x-nav-link> --}}
+            {{-- <li><a href="{{ route('history', 1) }}">HISTORY</a></li> --}}
+            <li><a href="{{ route('history', ['id' => $latestId]) }}">HISTORY</a></li>
         </ul>
     </div>
 </header>

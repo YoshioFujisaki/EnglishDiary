@@ -11,6 +11,19 @@
 
 
 @section('content')
+@if(Session::has('err_msg'))
+    <div class="alert alert-danger">
+        {{ Session::get('err_msg') }}
+    </div>
+@endif
+
+@if(Session::has('success_msg'))
+    <div class="alert alert-success">
+        {{ Session::get('success_msg') }}
+    </div>
+@endif
+
+
 <div class="arrow">
     @if ($diarys->id > $firstId)
         <a href="{{ route('history', $diarys->id - 1 ) }}">

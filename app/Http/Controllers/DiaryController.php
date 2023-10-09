@@ -9,6 +9,14 @@ use App\Models\Diary;
 
 class DiaryController extends Controller
 {
+
+    public function show_top()
+    {
+        $latestId = Diary::max('id');
+
+        return view('top', ['latestId' => $latestId]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -20,6 +28,7 @@ class DiaryController extends Controller
         // $latestId = DB::table('diarys')->max('id');
         $latestId = Diary::max('id');
         $firstId = Diary::min('id');
+        // dd($latestId);
 
         return view('history', ['diarys' => $diarys, 'latestId' => $latestId, 'firstId' => $firstId]);
     }
@@ -31,7 +40,10 @@ class DiaryController extends Controller
      */
     public function create()
     {
-        return view('create');
+        $latestId = Diary::max('id');
+        $firstId = Diary::min('id');
+
+        return view('create', ['latestId' => $latestId, 'firstId' => $firstId]);
     }
 
     /**
@@ -42,16 +54,18 @@ class DiaryController extends Controller
      */
     public function store(Request $request)
     {
-        // try {
-
-        // } catch (Throwable $e) {
-        //     LOG::error($e);
-        //     throw $e;
-        // }
-        dd($request->all());
-        Diary::create($request);
-        \Session::flash('err_msg', '日記を登録しました。');
-        return redirect()->route('history', ['id' => $request->id]);
+        $latestId = Diary::max('id');
+        $diary = Diary::create([
+            'sentence' => $request->input('sentence'),
+            'sentence_en' => $request->input('sentence_en'),
+        ]);
+        if ($diary) {
+            \Session::flash('success_msg', '日記を登録しました。');
+            return redirect()->route('history', ['latestId' => $latestId + 1]);
+        } else {
+            \Session::flash('err_msg', '日記の登録に失敗しました。');
+            return back(); // 直前のページにリダイレクト
+        }
     }
 
     /**
@@ -74,8 +88,9 @@ class DiaryController extends Controller
     public function edit($id)
     {
         $diarys = Diary::findOrFail($id);
+        $latestId = Diary::max('id');
         // dd(Diary::findOrFail($id));
-        return view('edit', compact('diarys'));
+        return view('edit', ['id' => $latestId + 1], compact('diarys'));
     }
 
     /**

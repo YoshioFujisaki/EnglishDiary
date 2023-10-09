@@ -12,12 +12,13 @@
 @section('content')
 <div class="create_diary">
     <h1>日記を書く</h1>
-    {{-- <form class="store_diary" method="post" action="{{ route('store') }}"> --}}
-        <form class="store_diary" method="post">
+    <h1>Latest ID : {{ $latestId }}</h1>
+    <form class="store_diary" method="post" action="{{ route('store') }}">
+        {{-- <form class="store_diary" method="post"> --}}
             @csrf
             <div class="create_diary_body">
                 <div class="create_diary_translate">
-                    <input type="submit" value="TRANSLATE">
+                    <input type="submit" name="translate" value="TRANSLATE" formaction="{{ route('chat_gpt-chat') }}">
                 </div>
                 <div class="sentence">
                     <label for="body">JAPANESE</label>
@@ -32,11 +33,11 @@
                 </div>
             </div>
             <div class="create_diary_submit">
-                <input type="submit" value="日記を書く">
+                <input type="submit" name="store" value="日記を書く">
             </div>
         </form>
 </div>
-<script>
+{{-- <script>
     // JavaScriptコードを追加
 $(document).ready(function() {
     $('.store_diary').on('submit', function(event) {
@@ -58,7 +59,7 @@ $(document).ready(function() {
     });
 });
 
-</script>
+</script> --}}
 @endsection
 
 @include('layout.footer')

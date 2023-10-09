@@ -208,3 +208,21 @@ img.prev {
 .hidden {
     display: none;
 }
+
+.alert.alert-success {
+    color: #155724; /* テキストの色 */
+    background-color: #d4edda; /* 背景色 */
+    border-color: #c3e6cb; /* ボーダー色 */
+    padding: 10px; /* パディング */
+    border-radius: 5px; /* ボーダーの角の丸み */
+    margin-bottom: 20px; /* メッセージ間の余白 */
+}
+
+.alert.alert-danger {
+    color: #721c24; /* テキストの色 */
+    background-color: #f8d7da; /* 背景色 */
+    border-color: #f5c6cb; /* ボーダー色 */
+    padding: 10px; /* パディング */
+    border-radius: 5px; /* ボーダーの角の丸み */
+    margin-bottom: 20px; /* メッセージ間の余白 */
+}

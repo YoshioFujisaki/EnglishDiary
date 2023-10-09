@@ -16,9 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('top');
-});
+Route::get('/', [DiaryController::class, 'show_top'])->name('top');
 
 Route::resource('user', UserController::class);
 
@@ -37,7 +35,7 @@ Route::prefix('create')->
 
 Route::prefix('history')->
     group(function () {
-        Route::get('{id}', [DiaryController::class, 'index'])->name('history');
+        Route::get('/{id}', [DiaryController::class, 'index'])->name('history');
         Route::get('edit/{id}', [DiaryController::class, 'edit'])->name('history-edit');
         Route::post('update/{id}', [DiaryController::class, 'update'])->name('history-update');
     });
