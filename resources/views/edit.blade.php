@@ -36,11 +36,8 @@
                         <img class="edit_img" src="{{ asset('/images/edit.png') }}" alt="編集">
                     </a>
                 </div>
-                <textarea name="sentence" id="sentence" cols="30" rows="10"
-                    value="{{ old('sentence') }}" readonly>{{ $diarys->sentence }}</textarea>
-                <div class="edit_diary_translate">
-                    <input type="button" value="TRANSLATE">
-                </div>
+                <textarea name="sentence" id="sentence" cols="30" rows="10" value="{{ old('sentence') }}"
+                    readonly>{{ $diarys->sentence }}</textarea>
             </div>
             <div class="sentence_en">
                 <div class="sentence_header">
@@ -49,12 +46,12 @@
                         <img class="edit_img" src="{{ asset('/images/edit.png') }}" alt="編集">
                     </a>
                 </div>
-                <textarea name="sentence_en" id="sentence_en" cols="30"
-                    rows="10" readonly>{{ $diarys->sentence_en }}</textarea>
-                <div class="edit_diary_submit">
-                    <input type="submit" value="日記を更新">
-                </div>
+                <textarea name="sentence_en" id="sentence_en" cols="30" rows="10"
+                    readonly>{{ $diarys->sentence_en }}</textarea>
             </div>
+        </div>
+        <div class="edit_diary_submit">
+            <input type="submit" value="日記を更新">
         </div>
 
     </form>

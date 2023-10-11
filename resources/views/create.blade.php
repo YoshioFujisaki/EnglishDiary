@@ -12,7 +12,6 @@
 @section('content')
 <div class="create_diary">
     <h1>日記を書く</h1>
-    <h1>Latest ID : {{ $latestId }}</h1>
     <form class="store_diary" method="post" action="{{ route('store') }}">
         {{-- <form class="store_diary" method="post"> --}}
             @csrf

@@ -226,3 +226,16 @@ img.prev {
     border-radius: 5px; /* ボーダーの角の丸み */
     margin-bottom: 20px; /* メッセージ間の余白 */
 }
+
+img.double_prev {
+    transform: rotate(180deg);
+    left: 30px;
+    top: 221px;
+    width: 20px;
+}
+
+img.double_next {
+    top: 221px;
+    right: 30px;
+    width: 20px;
+}
