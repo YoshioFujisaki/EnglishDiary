@@ -5,7 +5,7 @@
         <ul class="header_nav_menu">
             <li><a href="/create">CREATE</a></li>
             {{-- <li><a href="{{ route('history', 1) }}">HISTORY</a></li> --}}
-            <li><a href="{{ route('history', 1) }}">HISTORY</a></li>
+            <li><a href="{{ route('history', 24) }}">HISTORY</a></li>
         </ul>
     </div>
 </header>

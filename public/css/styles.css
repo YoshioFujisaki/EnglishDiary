@@ -239,3 +239,7 @@ img.double_next {
     right: 30px;
     width: 20px;
 }
+
+.edit_diary_submit {
+    float: right;
+}

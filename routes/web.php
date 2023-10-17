@@ -37,7 +37,9 @@ Route::prefix('history')->
     group(function () {
         Route::get('/{id}', [DiaryController::class, 'index'])->name('history');
         Route::get('edit/{id}', [DiaryController::class, 'edit'])->name('history-edit');
+        Route::post('edit/update/{id}', [DiaryController::class, 'update'])->name('update');
         Route::post('update/{id}', [DiaryController::class, 'update'])->name('history-update');
     });
+
 
 

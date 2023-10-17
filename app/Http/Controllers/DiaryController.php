@@ -55,13 +55,15 @@ class DiaryController extends Controller
     public function store(Request $request)
     {
         $latestId = Diary::max('id');
+
         $diary = Diary::create([
             'sentence' => $request->input('sentence'),
             'sentence_en' => $request->input('sentence_en'),
         ]);
+
         if ($diary) {
             \Session::flash('success_msg', '日記を登録しました。');
-            return redirect()->route('history', ['latestId' => $latestId + 1]);
+            return redirect()->route('history', $latestId + 1);
         } else {
             \Session::flash('err_msg', '日記の登録に失敗しました。');
             return back(); // 直前のページにリダイレクト
@@ -90,7 +92,7 @@ class DiaryController extends Controller
         $diarys = Diary::findOrFail($id);
         $latestId = Diary::max('id');
         // dd(Diary::findOrFail($id));
-        return view('edit', ['id' => $latestId + 1], compact('diarys'));
+        return view('edit', ['id' => $latestId + 1, 'diary' => $id], compact('diarys'));
     }
 
     /**
@@ -102,7 +104,28 @@ class DiaryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $sentence = $request->input('sentence');
+        $sentence_en = $request->input('sentence_en');
+
+        // HTMLタグを取り除く
+        $sanitizedSentence = strip_tags($sentence);
+        $sanitizedSentenceEn = strip_tags($sentence_en);
+        // バリデーション
+        $request->validate([
+            'sentence' => 'required|max:255',
+            'sentence_en' => 'required|max:255',
+        ]);
+        try {
+            $diary = Diary::findOrFail($id);
+            $diary->sentence = $sanitizedSentence;
+            $diary->sentence_en = $sanitizedSentenceEn;
+            $diary->save();
+            \Session::flash('success_msg', '日記を更新しました。');
+            return redirect()->route('history', ['id' => $id]);
+        } catch (Throwable $e) {
+            echo $e->getMessage();
+            abort(500);
+        }
     }
 
     /**
