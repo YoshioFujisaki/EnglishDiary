@@ -112,8 +112,8 @@ class DiaryController extends Controller
         $sanitizedSentenceEn = strip_tags($sentence_en);
         // バリデーション
         $request->validate([
-            'sentence' => 'required|max:255',
-            'sentence_en' => 'required|max:255',
+            'sentence' => 'required|max:1000',
+            'sentence_en' => 'required|max:1000',
         ]);
         try {
             $diary = Diary::findOrFail($id);
